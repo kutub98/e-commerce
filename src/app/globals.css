@@ -19,3 +19,26 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.PrimaryBg {
+  background: #f5f5dc (Ivory);
+}
+.PrimaryText {
+  color: #2f4f4f;
+}
+.Button {
+  background-color: #8fbc8f;
+}
+.ButtonText {
+  color: #c2b280;
+}
+
+.customWidth {
+  width: 100%;
+  max-width: 1320px;
+  margin: auto;
+  overflow: hidden;
+}
+.pointer-events-auto {
+  top: 88px !important;
+}
