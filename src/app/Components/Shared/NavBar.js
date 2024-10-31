@@ -1,14 +1,11 @@
 "use client";
-const {
-  Typography,
-  Button,
-  Input,
-  Drawer
-} = require("@material-tailwind/react");
+const { Typography, Button, Input } = require("@material-tailwind/react");
 import { GoSearch } from "react-icons/go";
 import { FaBars } from "react-icons/fa6";
 import { PiXBold } from "react-icons/pi";
 import { useEffect, useState } from "react";
+import { FaUserLarge } from "react-icons/fa6";
+import { FaShoppingBag } from "react-icons/fa";
 
 const NavBar = () => {
   const [openNav, setOpenNav] = useState(false);
@@ -74,7 +71,9 @@ const NavBar = () => {
         {/* login & shop */}
         <div className="flex justify-end space-x-3 hidden lg:block">
           <Button>Login</Button>
-          <Button>Shop</Button>
+
+          <FaUserLarge />
+          <FaShoppingBag />
         </div>
         {/* iconButton */}
 
