@@ -167,8 +167,8 @@ const NavBar = () => {
               onClick={() => setOpenNav(false)}
             >
               <div
-                className={`fixed top-[84px] left-0 primaryBg z-[99] h-screen w-1/2  p-4 lg:hidden transform transition-transform duration-600 overflow-y-auto ${
-                  openNav ? "translate-x-0 " : "-translate-x-full"
+                className={`fixed top-[84px] left-0 primaryBg z-[99] h-screen w-2/3 p-4 lg:hidden transform transition-transform duration-700 overflow-y-auto ${
+                  openNav ? "translate-x-0" : "-translate-x-full"
                 }`}
               >
                 {navLinks}
@@ -177,13 +177,14 @@ const NavBar = () => {
                   <Button className="ButtonBg px-4 py-2 w-full PrimaryText">
                     Login
                   </Button>
-                  <Button className="border  !bg-none ButtonText px-4 py-2 w-full">
+                  <Button className="border !bg-none ButtonText px-4 py-2 w-full">
                     Register
                   </Button>
                 </div>
               </div>
             </div>
           )}
+
           <div className="hidden lg:flex menu z-[999]">{navLinks}</div>
         </>
       )}
