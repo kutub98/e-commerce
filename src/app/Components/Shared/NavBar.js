@@ -63,7 +63,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="customWidth bg-white shadow-lg sticky top-0 left-0 w-full">
+    <div className="customWidth p-0 m-0 shadow-lg sticky top-0 left-0 w-full">
       {openSearchBar ? (
         <div className="fixed inset-0 w-full max-w-[1320px] mx-auto bg-black bg-opacity-50 z-[998] overlay">
           <div ref={searchBarRef} className="">
@@ -135,10 +135,8 @@ const NavBar = () => {
               onClick={() => setOpenNav(false)}
             >
               <div
-                className={`fixed top-[84px] left-0 primaryBg z-[999] w-1/2 h-svh p-4 lg:hidden transform transition-transform duration-300 ${
-                  openNav
-                    ? "translate-x-0 overflow-y-scroll"
-                    : "-translate-x-full"
+                className={`fixed top-[84px] left-0 primaryBg z-[999] h-screen w-1/2  p-4 lg:hidden transform transition-transform duration-600 overflow-y-auto ${
+                  openNav ? "translate-x-0 " : "-translate-x-full"
                 }`}
               >
                 {navLinks}
@@ -147,7 +145,7 @@ const NavBar = () => {
                   <Button className="ButtonBg px-4 py-2 w-full PrimaryText">
                     Login
                   </Button>
-                  <Button className="border bg-none ButtonText px-4 py-2 w-full">
+                  <Button className="border  !bg-none ButtonText px-4 py-2 w-full">
                     Register
                   </Button>
                 </div>
