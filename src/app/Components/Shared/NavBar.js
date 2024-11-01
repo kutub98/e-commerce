@@ -63,15 +63,15 @@ const NavBar = () => {
   return (
     <div className="customWidth px-8 py-6 bg-white shadow-lg sticky top-0 left-0 w-full">
       {openSearchBar ? (
-        <>
-          <div ref={searchBarRef}>
+        <div className="fixed inset-0 w-full max-w-[1320px] mx-auto bg-black bg-opacity-50 z-[998] overlay">
+          <div ref={searchBarRef} className="">
             {/* Search Store */}
-            <div className="justify-between my-4 flex md:hidden">
+            <div className=" border-none justify-between my0 flex md:hidden items-center b-white pt-4 shadow-md px-8 bg-white z-[999]">
               <h1>Search store</h1>
               <PiXBold onClick={() => setOpenSearchBar(false)} />
             </div>
             {/* Clickable Searchbar */}
-            <div className="flex justify-between w-full relative">
+            <div className="flex justify-between w-full relative items-center bg-white px-8 pb-4 md:pt-4 border-none">
               <div className="md:w-1/2 hidden md:block">
                 <h1>Super Shop</h1>
               </div>
@@ -88,7 +88,7 @@ const NavBar = () => {
               </div>
             </div>
           </div>
-        </>
+        </div>
       ) : (
         <>
           <div className="flex justify-between items-center my-3 bg-blue-gray-50 w-full">
