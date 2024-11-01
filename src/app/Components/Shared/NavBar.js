@@ -6,6 +6,8 @@ import { PiXBold } from "react-icons/pi";
 import { useEffect, useState, useRef } from "react";
 import { FaUserLarge } from "react-icons/fa6";
 import { FaShoppingBag } from "react-icons/fa";
+import Image from "next/image";
+import logo from "@/app/Assets/logo.png";
 
 const NavBar = () => {
   const [openNav, setOpenNav] = useState(false);
@@ -71,32 +73,38 @@ const NavBar = () => {
             <div className=" border-none justify-between my0 flex md:hidden items-center b-white pt-4 shadow-md px-8 bg-white z-[999]">
               <h1>Search store</h1>
               <PiXBold
-                className="ButtonText"
+                className="PrimaryText h-6 w-6"
                 onClick={() => setOpenSearchBar(false)}
               />
             </div>
             {/* Clickable Searchbar */}
             <div className="flex justify-between w-full relative items-center bg-white px-8 pb-4 md:pt-4 border-none">
               <div className="md:w-1/2 hidden md:block">
-                <h1>Super Shop</h1>
+                <Image
+                  src={logo}
+                  height={50}
+                  width={50}
+                  alt="logo"
+                  className="primaryBg rounded-full p-1"
+                />
               </div>
               <div className="relative lg:w-2/3 w-full">
                 <Input
-                  className="px-3 py-2 rounded w-full ButtonText"
+                  className="px-3 py-2 rounded w-full PrimaryText"
                   placeholder="Search here..."
                 />
-                <GoSearch className="absolute h-6 w-6  top-1/2 right-2 ButtonText transform -translate-y-1/2 cursor-pointer" />
+                <GoSearch className="absolute h-6 w-6  top-1/2 right-2 PrimaryText transform -translate-y-1/2 cursor-pointer" />
               </div>
               <div className="justify-end space-x-3 lg:flex lg:order-3 w-1/3 md:flex hidden">
-                <FaUserLarge className="h-5 w-5 ButtonText " stroke="2" />
-                <FaShoppingBag className="h-5 w-5 ButtonText " stroke="2" />
+                <FaUserLarge className="h-5 w-5 PrimaryText " stroke="2" />
+                <FaShoppingBag className="h-5 w-5 PrimaryText " stroke="2" />
               </div>
             </div>
           </div>
         </div>
       ) : (
         <>
-          <div className="flex justify-between items-center my-3 primaryBg w-full px-8 py-6">
+          <div className="flex justify-between items-center my-3 primaryBg w-full px-8 py-2">
             <div
               className="lg:hidden w-1/3"
               onClick={() => setOpenNav((prev) => !prev)}
@@ -107,8 +115,14 @@ const NavBar = () => {
                 <FaBars className="ButtonText" />
               )}
             </div>
-            <div className="lg:order-2 w-1/3 text-center ButtonText">
-              <h1>SuperShop</h1>
+            <div className="lg:order-2 w-1/3 text-center flex justify-center ButtonText">
+              <Image
+                src={logo}
+                height={70}
+                width={70}
+                alt="logo"
+                className="primaryBg rounded-full p-1"
+              />
             </div>
             <div className="lg:order-1  overflow-hidden w-1/3 items-center hidden lg:flex">
               <GoSearch
