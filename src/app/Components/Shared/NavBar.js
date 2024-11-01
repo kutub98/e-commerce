@@ -1,5 +1,5 @@
 "use client";
-const { Typography, Button, Input } = require("@material-tailwind/react");
+const { Typography, Input } = require("@material-tailwind/react");
 import { GoSearch } from "react-icons/go";
 import { FaBars } from "react-icons/fa6";
 import { PiXBold } from "react-icons/pi";
@@ -49,11 +49,13 @@ const NavBar = () => {
       ].map((menu) => (
         <li
           key={menu}
-          className="bg-blue-gray-500 px-4 py-2 rounded-md mr-2 mb-2 lg:mb-0 my-2"
+          className=" ButtonText px-4 py-2 rounded-md mr-2 mb-2 lg:mb-0 my-2"
           onClick={() => setOpenNav(false)}
         >
           <Typography variant="md" className="text-gray-400 font-medium">
-            <a href="#">{menu}</a>
+            <a href="#" className="ButtonText">
+              {menu}
+            </a>
           </Typography>
         </li>
       ))}
@@ -68,7 +70,10 @@ const NavBar = () => {
             {/* Search Store */}
             <div className=" border-none justify-between my0 flex md:hidden items-center b-white pt-4 shadow-md px-8 bg-white z-[999]">
               <h1>Search store</h1>
-              <PiXBold onClick={() => setOpenSearchBar(false)} />
+              <PiXBold
+                className="ButtonText"
+                onClick={() => setOpenSearchBar(false)}
+              />
             </div>
             {/* Clickable Searchbar */}
             <div className="flex justify-between w-full relative items-center bg-white px-8 pb-4 md:pt-4 border-none">
@@ -77,53 +82,60 @@ const NavBar = () => {
               </div>
               <div className="relative lg:w-2/3 w-full">
                 <Input
-                  className="px-3 py-2 rounded w-full"
+                  className="px-3 py-2 rounded w-full ButtonText"
                   placeholder="Search here..."
                 />
-                <GoSearch className="absolute h-6 w-6 top-1/2 right-2 transform -translate-y-1/2 cursor-pointer" />
+                <GoSearch className="absolute h-6 w-6  top-1/2 right-2 ButtonText transform -translate-y-1/2 cursor-pointer" />
               </div>
               <div className="justify-end space-x-3 lg:flex lg:order-3 w-1/3 md:flex hidden">
-                <FaUserLarge className="h-5 w-5" stroke="2" />
-                <FaShoppingBag className="h-5 w-5" stroke="2" />
+                <FaUserLarge className="h-5 w-5 ButtonText " stroke="2" />
+                <FaShoppingBag className="h-5 w-5 ButtonText " stroke="2" />
               </div>
             </div>
           </div>
         </div>
       ) : (
         <>
-          <div className="flex justify-between items-center my-3 bg-blue-gray-50 w-full">
+          <div className="flex justify-between items-center my-3 primaryBg w-full p-6">
             <div
               className="lg:hidden w-1/3"
               onClick={() => setOpenNav((prev) => !prev)}
             >
-              {openNav ? <PiXBold /> : <FaBars />}
+              {openNav ? (
+                <PiXBold className="ButtonText" />
+              ) : (
+                <FaBars className="ButtonText" />
+              )}
             </div>
-            <div className="lg:order-2 w-1/3 text-center">
+            <div className="lg:order-2 w-1/3 text-center ButtonText">
               <h1>SuperShop</h1>
             </div>
-            <div className="lg:order-1 bg-blue-gray-400 overflow-hidden w-1/3 items-center hidden lg:flex">
+            <div className="lg:order-1  overflow-hidden w-1/3 items-center hidden lg:flex">
               <GoSearch
-                className="h-6 w-6 cursor-pointer"
+                className="h-6 w-6  cursor-pointer ButtonText"
                 onClick={() => setOpenSearchBar(true)}
               />
-              <Input className="px-6 py-4 hidden" />
+              <Input className="px-6 py-4 hidden ButtonText" />
             </div>
             <div className="justify-end space-x-3 flex lg:flex lg:order-3 w-1/3">
-              <FaUserLarge className="h-5 w-5 hidden lg:block" stroke="2" />
+              <FaUserLarge
+                className="h-5 w-5 ButtonText  hidden lg:block"
+                stroke="2"
+              />
               <GoSearch
-                className="h-6 w-6 cursor-pointer block lg:hidden"
+                className="h-6 w-6  cursor-pointer ButtonText block lg:hidden"
                 onClick={() => setOpenSearchBar(true)}
               />
-              <FaShoppingBag className="h-5 w-5" stroke="2" />
+              <FaShoppingBag className="h-5 w-5 ButtonText " stroke="2" />
             </div>
           </div>
           {openNav && (
             <div
-              className="fixed inset-0 top-[88px] bg-black bg-opacity-50 z-[998] overlay"
+              className="fixed inset-0 top-[108px] bg-black bg-opacity-50 z-[998] overlay"
               onClick={() => setOpenNav(false)}
             >
               <div
-                className={`fixed top-[88px] left-0 bg-white z-[999] w-1/2 h-svh p-4 lg:hidden transform transition-transform duration-300 ${
+                className={`fixed top-[107px] left-0 primaryBg z-[999] w-1/2 h-svh p-4 lg:hidden transform transition-transform duration-300 ${
                   openNav
                     ? "translate-x-0 overflow-y-scroll"
                     : "-translate-x-full"
