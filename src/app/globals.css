@@ -27,9 +27,6 @@ body {
   padding: 0px !important;
   overflow: hidden;
 }
-.pointer-events-auto {
-  top: 84px !important;
-}
 
 .primaryBg {
   background: #0a1e2d;
