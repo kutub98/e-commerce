@@ -1,5 +1,5 @@
 "use client";
-const { Typography, Input } = require("@material-tailwind/react");
+const { Typography, Input, Button } = require("@material-tailwind/react");
 import { GoSearch } from "react-icons/go";
 import { FaBars } from "react-icons/fa6";
 import { PiXBold } from "react-icons/pi";
@@ -142,6 +142,15 @@ const NavBar = () => {
                 }`}
               >
                 {navLinks}
+                <div className="block flex-row flex-wrap space-y-3 px-3">
+                  <h1 className="text-xl text-white">My Account</h1>
+                  <Button className="ButtonBg px-4 py-2 w-full PrimaryText">
+                    Login
+                  </Button>
+                  <Button className="border bg-none ButtonText px-4 py-2 w-full">
+                    Register
+                  </Button>
+                </div>
               </div>
             </div>
           )}
