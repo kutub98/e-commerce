@@ -131,7 +131,7 @@ const NavBar = () => {
           </div>
           {openNav && (
             <div
-              className="fixed inset-0 top-[84px] bg-black bg-opacity-50 z-[998] overlay"
+              className="fixed inset-0 pb-8 top-[84px] bg-black bg-opacity-50 z-[998] overlay"
               onClick={() => setOpenNav(false)}
             >
               <div
@@ -140,7 +140,7 @@ const NavBar = () => {
                 }`}
               >
                 {navLinks}
-                <div className="block flex-row flex-wrap space-y-3 px-3">
+                <div className="block flex-row flex-wrap space-y-3 px-3 pb-20">
                   <h1 className="text-xl text-white">My Account</h1>
                   <Button className="ButtonBg px-4 py-2 w-full PrimaryText">
                     Login
