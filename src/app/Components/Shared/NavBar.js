@@ -44,29 +44,63 @@ const NavBar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const navLinksWithLink = [
+    {
+      name: "allProducts",
+      link: "/allProducts"
+    },
+    {
+      name: "Offer",
+      link: "/offer"
+    },
+    {
+      name: "Sharisa Oil",
+      link: "/sharisaOil"
+    },
+    {
+      name: "Dates",
+      link: "/dates"
+    },
+    {
+      name: "Ghee",
+      link: "/ghee"
+    },
+    {
+      name: "Masala",
+      link: "/masala"
+    },
+    {
+      name: "Organic Oil",
+      link: "/organicOil"
+    },
+    {
+      name: "Nuts & Seeds",
+      link: "/nutsSeeds"
+    },
+    {
+      name: "Tea/Coffee",
+      link: "/teaCoffee"
+    },
+    {
+      name: "Functional Food",
+      link: "/functionalFood"
+    }
+  ];
+
   const navLinks = (
-    <ul className="lg:flex lg:flex-row lg:flex-wrap">
-      {[
-        "All Categories",
-        "Offer",
-        "Honey",
-        "Sharisa Oil",
-        "Dates",
-        "Ghee",
-        "Masala",
-        "Organic Oil",
-        "Nuts & Seeds",
-        "Tea/Coffee",
-        "Functional Food"
-      ].map((menu) => (
+    <ul className="lg:flex lg:flex-row lg:flex-wrap px-4">
+      {navLinksWithLink.map((menu) => (
         <li
-          key={menu}
+          key={menu.name}
           className=" ButtonText px-4 py-2 rounded-md mr-2 mb-2 lg:mb-0 my-2"
           onClick={() => setOpenNav(false)}
         >
           <Typography variant="md" className="text-gray-400 font-medium">
-            <a href="#" className="ButtonText">
-              {menu}
+            <a
+              href={menu.link}
+              className="ButtonText capitalize hover:text-[#0a1e2d]"
+            >
+              {menu.name}
             </a>
           </Typography>
         </li>
