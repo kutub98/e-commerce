@@ -5,14 +5,6 @@ import { IoIosArrowUp } from "react-icons/io";
 import { HiBars4, HiBars3, HiBars2 } from "react-icons/hi2";
 import Ghee from "../ghee/page";
 import { FaArrowUp } from "react-icons/fa6";
-import Offer from "../offer/page";
-import SharisaOil from "../sharishaoil/page";
-import Dates from "../dates/page";
-import Masala from "../masala/page";
-import OrganicOil from "../organicoil/page";
-import Nuts from "../nuts/page";
-import TeaCoffee from "../teacoffee/page";
-import FunctionalFood from "../functionalfood/page";
 
 const AllProducts = () => {
   const [openTabs, setOpenTabs] = useState(true);
@@ -31,20 +23,23 @@ const AllProducts = () => {
 
   const navLinksWithLink = [
     { name: "All Categories", link: "/allProducts", content: <Ghee /> },
-    { name: "Offer", link: "/offer", content: <Offer /> },
-    { name: "Sharisa Oil", link: "/sharisaOil", content: <SharisaOil /> },
-    { name: "Dates", link: "/dates", content: <Dates /> },
+    { name: "Offer", link: "/offer", content: <Ghee /> },
+    { name: "Sharisa Oil", link: "/sharisaOil", content: <Ghee /> },
+    { name: "Dates", link: "/dates", content: <Ghee /> },
     { name: "Ghee", link: "/ghee", content: <Ghee /> },
-    { name: "Masala", link: "/masala", content: <Masala /> },
-    { name: "Organic Oil", link: "/organicOil", content: <OrganicOil /> },
-    { name: "Nuts & Seeds", link: "/nutsSeeds", content: <Nuts /> },
-    { name: "Tea/Coffee", link: "/teaCoffee", content: <TeaCoffee /> },
-    {
-      name: "Functional Food",
-      link: "/functionalFood",
-      content: <FunctionalFood />
-    }
+    { name: "Masala", link: "/masala", content: <Ghee /> },
+    { name: "Organic Oil", link: "/organicOil", content: <Ghee /> },
+    { name: "Nuts & Seeds", link: "/nutsSeeds", content: <Ghee /> },
+    { name: "Tea/Coffee", link: "/teaCoffee", content: <Ghee /> },
+    { name: "Functional Food", link: "/functionalFood", content: <Ghee /> }
   ];
+
+  const handleTabClick = (name) => {
+    setActiveTab(name);
+    if (window.innerWidth < 768) {
+      setOpenFilters(false); // Close the sidebar on mobile devices
+    }
+  };
 
   const activeContent = navLinksWithLink.find(
     (item) => item.name === activeTab
@@ -158,7 +153,7 @@ const AllProducts = () => {
                         ? "text-[#ff8c42] font-semibold"
                         : "text-black"
                     }`}
-                    onClick={() => setActiveTab(item.name)}
+                    onClick={() => handleTabClick(item.name)}
                   >
                     {item.name}
                     <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-[#ff8c42] transition-all duration-300 group-hover:w-full"></span>
