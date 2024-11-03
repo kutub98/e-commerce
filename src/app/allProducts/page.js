@@ -67,7 +67,7 @@ const AllProducts = () => {
     <div className="customWidth px-4 sm:px-6 lg:px-8 py-6">
       {/* Header */}
       <div className="w-full py-4 text-center primaryBg rounded-lg shadow-lg mb-6">
-        <h1 className="text-2xl lg:text-3xl text-center text-white font-semibold">
+        <h1 className="text-xl lg:text-3xl text-center text-white">
           All Products
         </h1>
       </div>
@@ -141,12 +141,14 @@ const AllProducts = () => {
         >
           {/* Tab headers - with sliding animation */}
           <TabsHeader
-            className={`transform transition-transform duration-500  ${
-              openFilters ? "translate-x-0" : "-translate-x-full"
-            } lg:flex-col z-[999] bg-[#ff8c42] lg:flex lg:w-[300px] lg:border-r border-gray-200`}
+            className={`transform transition-transform duration-500 ${
+              openFilters
+                ? "translate-x-0 lg:w-[270px] m-0"
+                : "-translate-x-[1020px] lg:w-0"
+            } bg-[#ff8c42] lg:flex lg:flex-col  lg:border-r border-gray-200 z-[989]`}
             style={{ scrollbarWidth: "none" }}
           >
-            <div className=" justify-between mb-3 hidden lg:flex">
+            <div className="justify-between mb-3 hidden lg:flex">
               <h1 className="text-lg">Collection</h1>
               <IoIosArrowDown
                 className="h-6 w-6 cursor-pointer"
@@ -154,12 +156,13 @@ const AllProducts = () => {
                 onClick={() => setOpenTabs(!openTabs)}
               />
             </div>
+
             {openTabs &&
               data.map(({ label, value }) => (
                 <Tab
                   key={value}
                   value={value}
-                  className="text-sm sm:text-base lg:text-lg px-3 py-2 transform transition-transform duration-500"
+                  className="text-sm sm:text-base lg:text-lg px-3 py-2 transform transition-transform duration-500 block lg:flex"
                 >
                   {label}
                 </Tab>
@@ -173,8 +176,8 @@ const AllProducts = () => {
               mount: { opacity: 1, y: 0 },
               unmount: { opacity: 0, y: 30 }
             }}
-            className={`w-full lg:w-full lg:pl-4 ${
-              openFilters ? "mt-0" : "-mt-8"
+            className={`w-full lg:w-full   ${
+              openFilters ? "mt-0 p-4" : "-mt-8 lg:mt-0 lg:w-full m-0  -mr-10 "
             } `}
           >
             {data.map(({ value, desc }) => (
