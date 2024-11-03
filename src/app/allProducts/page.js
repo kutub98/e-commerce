@@ -172,7 +172,7 @@ const AllProducts = () => {
         {/* Content Area */}
         <div
           className={`bg-blue-gray-500 ${
-            openFilters ? "w-0 lg:w-4/5" : "w-full"
+            openFilters ? " w-full lg:w-4/5" : "w-full"
           }`}
         >
           {activeContent}
