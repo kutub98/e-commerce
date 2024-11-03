@@ -5,6 +5,14 @@ import { IoIosArrowUp } from "react-icons/io";
 import { HiBars4, HiBars3, HiBars2 } from "react-icons/hi2";
 import Ghee from "../ghee/page";
 import { FaArrowUp } from "react-icons/fa6";
+import Offer from "../offer/page";
+import SharisaOil from "../sharishaoil/page";
+import Dates from "../dates/page";
+import Masala from "../masala/page";
+import OrganicOil from "../organicoil/page";
+import Nuts from "../nuts/page";
+import TeaCoffee from "../teacoffee/page";
+import FunctionalFood from "../functionalfood/page";
 
 const AllProducts = () => {
   const [openTabs, setOpenTabs] = useState(true);
@@ -23,15 +31,19 @@ const AllProducts = () => {
 
   const navLinksWithLink = [
     { name: "All Categories", link: "/allProducts", content: <Ghee /> },
-    { name: "Offer", link: "/offer", content: <Ghee /> },
-    { name: "Sharisa Oil", link: "/sharisaOil", content: <Ghee /> },
-    { name: "Dates", link: "/dates", content: <Ghee /> },
+    { name: "Offer", link: "/offer", content: <Offer /> },
+    { name: "Sharisa Oil", link: "/sharisaOil", content: <SharisaOil /> },
+    { name: "Dates", link: "/dates", content: <Dates /> },
     { name: "Ghee", link: "/ghee", content: <Ghee /> },
-    { name: "Masala", link: "/masala", content: <Ghee /> },
-    { name: "Organic Oil", link: "/organicOil", content: <Ghee /> },
-    { name: "Nuts & Seeds", link: "/nutsSeeds", content: <Ghee /> },
-    { name: "Tea/Coffee", link: "/teaCoffee", content: <Ghee /> },
-    { name: "Functional Food", link: "/functionalFood", content: <Ghee /> }
+    { name: "Masala", link: "/masala", content: <Masala /> },
+    { name: "Organic Oil", link: "/organicOil", content: <OrganicOil /> },
+    { name: "Nuts & Seeds", link: "/nutsSeeds", content: <Nuts /> },
+    { name: "Tea/Coffee", link: "/teaCoffee", content: <TeaCoffee /> },
+    {
+      name: "Functional Food",
+      link: "/functionalFood",
+      content: <FunctionalFood />
+    }
   ];
 
   const handleTabClick = (name) => {
@@ -172,7 +184,7 @@ const AllProducts = () => {
         {/* Content Area */}
         <div
           className={`bg-blue-gray-500 ${
-            openFilters ? " w-full lg:w-4/5" : "w-full"
+            openFilters ? " w-0 md:w-4/5 lg:w-4/5" : "w-full"
           }`}
         >
           {activeContent}
