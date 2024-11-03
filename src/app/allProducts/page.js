@@ -58,7 +58,7 @@ const AllProducts = () => {
   )?.content;
 
   return (
-    <div className="customWidth px-4 sm:px-6 lg:px-8 py-6 overflow-hidden">
+    <div className="customWidth px-4 sm:px-6 lg:px-8 py-6 overflow-hidden ">
       {/* Header */}
       <div className="w-full py-4 text-center primaryBg rounded-lg shadow-lg mb-6">
         <h1 className="text-xl lg:text-3xl text-center text-white">
