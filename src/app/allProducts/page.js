@@ -107,8 +107,10 @@ const AllProducts = () => {
       {/* Sidebar */}
       <div className="flex justify-between gap-3 customWidth overflow-hidden">
         <div
-          className={`w-1/5 shadow-lg bg-white px-4 overflow-hidden transform transition-all duration-500 origin-left ${
-            openFilters ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
+          className={` shadow-lg  bg-white px-4 overflow-hidden transform transition-all duration-500 origin-left ${
+            openFilters
+              ? "scale-x-100 opacity-100 w-full md:w-1/5 "
+              : "scale-x-0 opacity-0 "
           }`}
         >
           {/* Header with toggle button */}
