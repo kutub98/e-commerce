@@ -177,7 +177,7 @@ const AllProducts = () => {
               unmount: { opacity: 0, y: 30 }
             }}
             className={`w-full lg:w-full   ${
-              openFilters ? "mt-0 p-4" : "-mt-8 lg:mt-0 lg:w-full m-0  -mr-10 "
+              openFilters ? "mt-0 " : "-mt-8 lg:mt-0 lg:w-full "
             } `}
           >
             {data.map(({ value, desc }) => (
