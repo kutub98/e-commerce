@@ -46,7 +46,7 @@ const NavBar = () => {
 
   const navLinksWithLink = [
     {
-      name: "allProducts",
+      name: "All Categories",
       link: "/allProducts"
     },
     {
