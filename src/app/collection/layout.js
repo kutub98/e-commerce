@@ -4,20 +4,24 @@ import { useEffect, useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
 import { HiBars4, HiBars3, HiBars2 } from "react-icons/hi2";
 import { Tooltip, Typography } from "@material-tailwind/react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function CollectionLayout({ children }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [openTabs, setOpenTabs] = useState(true);
   const [openFilters, setOpenFilters] = useState(true);
   const [activeTab, setActiveTab] = useState("All Categories");
 
   useEffect(() => {
-    if (router.pathname) {
-      const currentPath = router.pathname.split("/")[2];
-      setActiveTab(currentPath || activeTab);
+    if (pathname) {
+      const currentPath = pathname.split("/")[2];
+      const matchedItem = navItems.find((item) =>
+        item.link.includes(currentPath)
+      );
+      setActiveTab(matchedItem ? matchedItem.name : "All Categories");
     }
-  }, [router.pathname]);
+  }, [pathname]);
 
   const navItems = [
     { name: "All Categories", link: "/collection/all" },
@@ -40,10 +44,6 @@ export default function CollectionLayout({ children }) {
       setOpenFilters(false);
     }
   };
-
-  const activeContent = navItems.find(
-    (item) => item.name.toLowerCase() === activeTab.toLowerCase()
-  )?.content;
 
   return (
     <html lang="en">
@@ -183,9 +183,7 @@ export default function CollectionLayout({ children }) {
                 : "w-full sm:w-2/5 md:w-2/5 lg:w-1/5"
             }`}
           >
-            {children || activeContent || (
-              <p>Select a category to view content.</p>
-            )}
+            {children || <p>Select a category to view content.</p>}
           </div>
         </div>
       </body>
