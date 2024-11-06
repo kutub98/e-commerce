@@ -1,17 +1,17 @@
-// import localFont from "next/font/local";
+import localFont from "next/font/local";
 import "../globals.css";
-import NavBar from "../Components/Shared/NavBar";
 
-// const geistSans = localFont({
-//   src: "./fonts/GeistVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900"
-// });
-// const geistMono = localFont({
-//   src: "./fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900"
-// });
+const geistSans = localFont({
+  src: "../fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900"
+});
+
+const geistMono = localFont({
+  src: "../fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900"
+});
 
 export const metadata = {
   title: "Daily Necessities || Super Shop",
@@ -21,12 +21,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-      // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <h1>ADMIN FOOTER</h1>
-        {children}
-        <h1>Admin Footer</h1>
+      <body className="antialiased">
+        <div className={`${geistSans.variable} ${geistMono.variable}`}>
+          <h1>Admin Header</h1>
+          {children}
+          <footer>Admin Footer</footer>
+        </div>
       </body>
     </html>
   );

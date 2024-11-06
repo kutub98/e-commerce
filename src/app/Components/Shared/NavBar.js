@@ -14,6 +14,7 @@ import { FaUserLarge } from "react-icons/fa6";
 import { FaShoppingBag } from "react-icons/fa";
 import Image from "next/image";
 import logo from "@/app/Assets/logo.png";
+import Link from "next/link";
 
 const NavBar = () => {
   const [openNav, setOpenNav] = useState(false);
@@ -47,43 +48,43 @@ const NavBar = () => {
   const navLinksWithLink = [
     {
       name: "All Categories",
-      link: "/allProducts"
+      link: "/collection/all"
     },
     {
       name: "Offer",
-      link: "/offer"
+      link: "/collection/offer"
     },
     {
       name: "Sharisa Oil",
-      link: "/sharisaOil"
+      link: "/collection/sharisaOil"
     },
     {
       name: "Dates",
-      link: "/dates"
+      link: "/collection/dates"
     },
     {
       name: "Ghee",
-      link: "/ghee"
+      link: "/collection/ghee"
     },
     {
       name: "Masala",
-      link: "/masala"
+      link: "/collection/masala"
     },
     {
       name: "Organic Oil",
-      link: "/organicOil"
+      link: "/collection/organicOil"
     },
     {
       name: "Nuts & Seeds",
-      link: "/nutsSeeds"
+      link: "/collection/nutsSeeds"
     },
     {
       name: "Tea/Coffee",
-      link: "/teaCoffee"
+      link: "/collection/teaCoffee"
     },
     {
       name: "Functional Food",
-      link: "/functionalFood"
+      link: "/collection/functionalFood"
     }
   ];
 
@@ -124,13 +125,15 @@ const NavBar = () => {
             {/* Clickable Searchbar */}
             <div className="flex justify-between w-full relative items-center bg-white px-8 pb-4 md:pt-4 border-none">
               <div className="md:w-1/2 hidden md:block">
-                <Image
-                  src={logo}
-                  height={50}
-                  width={50}
-                  alt="logo"
-                  className="primaryBg rounded-full p-1"
-                />
+                <Link href={"/"}>
+                  <Image
+                    src={logo}
+                    height={50}
+                    width={50}
+                    alt="logo"
+                    className="primaryBg rounded-full p-1"
+                  />
+                </Link>
               </div>
               <div className="relative lg:w-2/3 w-full">
                 <Input
@@ -164,13 +167,15 @@ const NavBar = () => {
               )}
             </div>
             <div className="lg:order-2 w-1/3 text-center flex justify-center ButtonText">
-              <Image
-                src={logo}
-                height={70}
-                width={70}
-                alt="logo"
-                className="primaryBg rounded-full p-1"
-              />
+              <Link href={"/"}>
+                <Image
+                  src={logo}
+                  height={70}
+                  width={70}
+                  alt="logo"
+                  className="primaryBg rounded-full p-1"
+                />
+              </Link>
             </div>
             <div className="lg:order-1  overflow-hidden w-1/3 items-center hidden lg:flex">
               <GoSearch
