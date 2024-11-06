@@ -21,7 +21,7 @@ export default function CollectionLayout({ children }) {
     }
   }, [router.pathname]);
 
-  const navLinksWithLink = [
+  const navItems = [
     {
       name: "All Categories",
       link: "/collection/all"
@@ -66,14 +66,14 @@ export default function CollectionLayout({ children }) {
 
   const handleTabClick = (name) => {
     setActiveTab(name);
-    const path = navLinksWithLink.find((item) => item.name === name)?.link;
+    const path = navItems.find((item) => item.name === name)?.link;
     if (path) router.push(path);
     if (window.innerWidth < 768) {
       setOpenFilters(false);
     }
   };
 
-  const activeContent = navLinksWithLink.find(
+  const activeContent = navItems.find(
     (item) => item.name.toLowerCase() === activeTab.toLowerCase()
   )?.content;
 
@@ -157,7 +157,7 @@ export default function CollectionLayout({ children }) {
           <div
             className={`shadow-lg bg-white px-4 overflow-hidden transform transition-all duration-500 origin-left ${
               openFilters
-                ? "scale-x-100 opacity-100 w-full sm:w-3/3 md:w-1/3"
+                ? "scale-x-100 opacity-100 w-full sm:w-full md:w-1/3"
                 : "scale-x-0 opacity-0 w-0"
             }`}
           >
@@ -183,7 +183,7 @@ export default function CollectionLayout({ children }) {
                     : "scale-y-0 max-h-0 opacity-0 m-0 p-0"
                 }`}
               >
-                {navLinksWithLink.map((item, key) => (
+                {navItems.map((item, key) => (
                   <ul key={key}>
                     <Typography
                       className={`px-4 py-2  rounded cursor-pointer capitalize m-1 relative overflow-hidden group ${
@@ -208,7 +208,9 @@ export default function CollectionLayout({ children }) {
             </div>
           </div>
           {/* Content Area */}
-          <div className="w-full ">
+          <div
+            className={`${openFilters ? "lg:block hidden" : "w-full lg:w-1/3"}`}
+          >
             {children || activeContent || (
               <p>Select a category to view content.</p>
             )}
