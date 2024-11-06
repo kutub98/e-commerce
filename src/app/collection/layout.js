@@ -1,6 +1,5 @@
 "use client";
 import NavBar from "../Components/Shared/NavBar";
-
 import { useEffect, useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
 import { HiBars4, HiBars3, HiBars2 } from "react-icons/hi2";
@@ -13,7 +12,6 @@ export default function CollectionLayout({ children }) {
   const [openFilters, setOpenFilters] = useState(true);
   const [activeTab, setActiveTab] = useState("All Categories");
 
-  // UseEffect to update active tab based on route
   useEffect(() => {
     if (router.pathname) {
       const currentPath = router.pathname.split("/")[2];
@@ -22,46 +20,16 @@ export default function CollectionLayout({ children }) {
   }, [router.pathname]);
 
   const navItems = [
-    {
-      name: "All Categories",
-      link: "/collection/all"
-    },
-    {
-      name: "Offer",
-      link: "/collection/offer"
-    },
-    {
-      name: "Sharisa Oil",
-      link: "/collection/sharisaOil"
-    },
-    {
-      name: "Dates",
-      link: "/collection/dates"
-    },
-    {
-      name: "Ghee",
-      link: "/collection/ghee"
-    },
-    {
-      name: "Masala",
-      link: "/collection/masala"
-    },
-    {
-      name: "Organic Oil",
-      link: "/collection/organicOil"
-    },
-    {
-      name: "Nuts & Seeds",
-      link: "/collection/nutsSeeds"
-    },
-    {
-      name: "Tea/Coffee",
-      link: "/collection/teaCoffee"
-    },
-    {
-      name: "Functional Food",
-      link: "/collection/functionalFood"
-    }
+    { name: "All Categories", link: "/collection/all" },
+    { name: "Offer", link: "/collection/offer" },
+    { name: "Sharisa Oil", link: "/collection/sharisaOil" },
+    { name: "Dates", link: "/collection/dates" },
+    { name: "Ghee", link: "/collection/ghee" },
+    { name: "Masala", link: "/collection/masala" },
+    { name: "Organic Oil", link: "/collection/organicOil" },
+    { name: "Nuts & Seeds", link: "/collection/nutsSeeds" },
+    { name: "Tea/Coffee", link: "/collection/teaCoffee" },
+    { name: "Functional Food", link: "/collection/functionalFood" }
   ];
 
   const handleTabClick = (name) => {
@@ -81,7 +49,7 @@ export default function CollectionLayout({ children }) {
     <html lang="en">
       <body>
         <NavBar />
-        <div className="customWidth px-4 sm:px-6 lg:px-8 py-6 overflow-hidden  relative">
+        <div className="customWidth px-4 sm:px-6 lg:px-8 py-6 overflow-hidden relative">
           {/* Filters Header */}
           <div className="fixed w-full max-w-[1320px] lg:top-40 z-[900] transform translate-x-0 bg-white p-1">
             <div className="flex justify-between px-8 my-3 overflow-hidden ">
@@ -130,29 +98,29 @@ export default function CollectionLayout({ children }) {
                 <Tooltip
                   content="3 Columns"
                   placement="top"
-                  className="bg-[#ff8c42] text-xs"
+                  className="bg-[#ff8c42] text-xs hidden md:block"
                 >
-                  <HiBars3 className="primaryBg h-5 w-5 text-white rotate-[90deg] hidden md:block" />
+                  <HiBars3 className="primaryBg h-5 w-5 text-white rotate-[90deg]" />
                 </Tooltip>
                 <Tooltip
                   content="4 Columns"
                   placement="top"
                   className="bg-[#ff8c42] text-xs hidden lg:block"
                 >
-                  <HiBars4 className="primaryBg h-5 w-5 text-white rotate-[90deg] hidden lg:block" />
+                  <HiBars4 className="primaryBg h-5 w-5 text-white rotate-[90deg]" />
                 </Tooltip>
               </div>
             </div>
           </div>
         </div>
-        {/* Header */}
+        {/* Header with Dynamic Category Name */}
         <div className="pt-6 pb-3 bg-[#ff8c42] transform translate-x-0 w-full max-w-[1320px] mx-auto mt-10 overflow-hidden">
           <h1 className="text-xl lg:text-3xl text-center text-white">
-            All Products
+            {activeTab.replace(/([a-z])([A-Z])/g, "$1 $2")}
           </h1>
         </div>
-        {/* content  */}
-        <div className="flex  transform translate-x-0 w-full max-w-[1320px] mx-auto  overflow-hidden  bg-green-500 ">
+        {/* Content */}
+        <div className="flex transform translate-x-0 w-full max-w-[1320px] mx-auto overflow-hidden bg-green-500">
           {/* Sidebar */}
           <div
             className={`shadow-lg bg-white px-4 overflow-hidden transform transition-all duration-500 origin-left ${
@@ -186,7 +154,7 @@ export default function CollectionLayout({ children }) {
                 {navItems.map((item, key) => (
                   <ul key={key}>
                     <Typography
-                      className={`px-4 py-2  rounded cursor-pointer capitalize m-1 relative overflow-hidden group ${
+                      className={`px-4 py-2 rounded cursor-pointer capitalize m-1 relative overflow-hidden group ${
                         activeTab === item.name
                           ? "text-[#ff8c42] font-medium"
                           : "text-black"
