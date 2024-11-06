@@ -15,7 +15,7 @@ export default function CollectionLayout({ children }) {
   useEffect(() => {
     if (router.pathname) {
       const currentPath = router.pathname.split("/")[2];
-      setActiveTab(currentPath || "All Categories");
+      setActiveTab(currentPath || activeTab);
     }
   }, [router.pathname]);
 
@@ -49,10 +49,10 @@ export default function CollectionLayout({ children }) {
     <html lang="en">
       <body>
         <NavBar />
-        <div className="customWidth px-4 sm:px-6 lg:px-8 py-6 overflow-hidden relative">
+        <div className="customWidth px-4 sm:px-6 lg:px-6 py-6 overflow-hidden relative">
           {/* Filters Header */}
           <div className="fixed w-full max-w-[1320px] lg:top-40 z-[900] transform translate-x-0 bg-white p-1">
-            <div className="flex justify-between px-8 my-3 overflow-hidden ">
+            <div className="flex justify-between px-6 my-3 overflow-hidden ">
               <div className="flex space-x-4">
                 <h1
                   className="flex items-center space-x-2 cursor-pointer select-none"
@@ -100,14 +100,14 @@ export default function CollectionLayout({ children }) {
                   placement="top"
                   className="bg-[#ff8c42] text-xs hidden md:block"
                 >
-                  <HiBars3 className="primaryBg h-5 w-5 text-white rotate-[90deg]" />
+                  <HiBars3 className="primaryBg hidden md:block h-5 w-5 text-white rotate-[90deg]" />
                 </Tooltip>
                 <Tooltip
                   content="4 Columns"
                   placement="top"
                   className="bg-[#ff8c42] text-xs hidden lg:block"
                 >
-                  <HiBars4 className="primaryBg h-5 w-5 text-white rotate-[90deg]" />
+                  <HiBars4 className="primaryBg h-5 w-5 hidden lg:block text-white rotate-[90deg]" />
                 </Tooltip>
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function CollectionLayout({ children }) {
           <div
             className={`shadow-lg bg-white px-4 overflow-hidden transform transition-all duration-500 origin-left ${
               openFilters
-                ? "scale-x-100 opacity-100 w-full sm:w-full md:w-1/3"
+                ? "scale-x-100 opacity-100 w-full sm:w-2/5 md:w-2/5 lg:w-1/5"
                 : "scale-x-0 opacity-0 w-0"
             }`}
           >
@@ -177,7 +177,11 @@ export default function CollectionLayout({ children }) {
           </div>
           {/* Content Area */}
           <div
-            className={`${openFilters ? "lg:block hidden" : "w-full lg:w-1/3"}`}
+            className={`${
+              openFilters
+                ? "lg:block hidden"
+                : "w-full sm:w-2/5 md:w-2/5 lg:w-1/5"
+            }`}
           >
             {children || activeContent || (
               <p>Select a category to view content.</p>

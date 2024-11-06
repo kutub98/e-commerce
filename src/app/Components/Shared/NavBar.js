@@ -89,17 +89,20 @@ const NavBar = () => {
   ];
 
   const navLinks = (
-    <ul className="lg:flex lg:flex-row lg:flex-wrap px-4">
+    <ul className="lg:flex lg:flex-row lg:flex-wrap px-2 md:px-1">
       {navLinksWithLink.map((menu) => (
         <li
           key={menu.name}
-          className=" ButtonText px-4 py-2 rounded-md mr-2 mb-2 lg:mb-0 my-2"
+          className=" ButtonText px-4 py-2 md:px-3 rounded-md mr-2 mb-2 lg:mb-0 my-2 "
           onClick={() => setOpenNav(false)}
         >
-          <Typography variant="md" className="text-gray-400 font-medium">
+          <Typography
+            variant=""
+            className="text-gray-400 font-medium text-lg lg:text-base xl:text-lg"
+          >
             <a
               href={menu.link}
-              className="ButtonText capitalize hover:text-[#0a1e2d]"
+              className="ButtonText capitalize hover:text-[#0a1e2d] "
             >
               {menu.name}
             </a>
@@ -115,7 +118,7 @@ const NavBar = () => {
         <div className="fixed inset-0 w-full max-w-[1320px] mx-auto bg-black bg-opacity-50 z-[998] overlay">
           <div ref={searchBarRef} className="">
             {/* Search Store */}
-            <div className=" border-none justify-between my0 flex md:hidden items-center b-white pt-4 shadow-md px-8 bg-white z-[991]">
+            <div className=" border-none justify-between my0 flex md:hidden items-center b-white pt-4 shadow-md px-6 bg-white z-[991]">
               <h1>Search store</h1>
               <PiXBold
                 className="PrimaryText h-6 w-6"
@@ -123,7 +126,7 @@ const NavBar = () => {
               />
             </div>
             {/* Clickable Searchbar */}
-            <div className="flex justify-between w-full relative items-center bg-white px-8 pb-4 md:pt-4 border-none">
+            <div className="flex justify-between w-full relative items-center bg-white px-6 pb-4 md:pt-4 border-none">
               <div className="md:w-1/2 hidden md:block">
                 <Link href={"/"}>
                   <Image
@@ -155,7 +158,7 @@ const NavBar = () => {
         </div>
       ) : (
         <>
-          <div className="flex justify-between items-center my-3 primaryBg w-full px-8 py-2">
+          <div className="flex justify-between items-center my-3 primaryBg w-full px-6 py-2">
             <div
               className="lg:hidden w-1/3"
               onClick={() => setOpenNav((prev) => !prev)}
