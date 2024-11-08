@@ -21,9 +21,11 @@ const NavBar = () => {
   const [openSearchBar, setOpenSearchBar] = useState(false);
   const searchBarRef = useRef(null);
   const [open, setOpen] = React.useState(false);
-
+  const [scrollDirection, setScrollDirection] = useState("up");
   const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);
+
+  let lastScrollY = 0;
 
   // Close drawer on larger screens
   useEffect(() => {
@@ -112,11 +114,37 @@ const NavBar = () => {
     </ul>
   );
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+
+      if (currentScroll > lastScrollY && currentScroll > 100) {
+        setScrollDirection("down");
+      } else if (currentScroll < lastScrollY) {
+        setScrollDirection("up");
+      }
+
+      lastScrollY = currentScroll;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="customWidth p-0 m-0 shadow-lg bg-white sticky z-[999] top-0 left-0 w-full">
+    <div
+      className={`customWidth p-0 m-0 shadow-lg bg-white sticky  top-0 left-0 w-full transition-transform duration-300 ${
+        scrollDirection === "down"
+          ? "-translate-y-full z-[10000]"
+          : "translate-y-0 z-[10000]"
+      }`}
+    >
       {openSearchBar ? (
-        <div className="fixed inset-0 w-full max-w-[1320px] mx-auto bg-black bg-opacity-50 z-[998] overlay">
-          <div ref={searchBarRef} className="">
+        <div className="fixed inset-0 w-full max-w-[1320px] mx-auto bg-black bg-opacity-50 z-[999] overlay">
+          <div ref={searchBarRef} className="relative z-[1000]">
             {/* Search Store */}
             <div className=" border-none justify-between my0 flex md:hidden items-center b-white pt-4 shadow-md px-6 bg-white z-[991]">
               <h1>Search store</h1>
@@ -205,7 +233,9 @@ const NavBar = () => {
           </div>
           {openNav && (
             <div
-              className="fixed inset-0 pb-8 top-[84px] bg-black bg-opacity-50 z-[998] overlay"
+              className={`fixed top-[84px] left-0 primaryBg z-[10001] h-screen w-2/3 p-4 lg:hidden transform transition-transform duration-700 overflow-y-auto ${
+                openNav ? "translate-x-0" : "-translate-x-full"
+              }`}
               onClick={() => setOpenNav(false)}
             >
               <div
@@ -232,14 +262,14 @@ const NavBar = () => {
       )}
 
       {open && (
-        <div className="w-full h-screen fixed overlay bg-black opacity-75 "></div>
+        <div className="w-full h-screen fixed overlay bg-black opacity-75 z-[10095]"></div>
       )}
 
       <Drawer
         open={open}
         onClose={closeDrawer}
         placement="right"
-        className="p-4 w-full "
+        className="p-4 w-full z-[10000] h-screen"
       >
         <div className="mb-6 flex items-center justify-between">
           <Typography variant="h5" color="blue-gray">

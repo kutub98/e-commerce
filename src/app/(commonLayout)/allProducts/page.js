@@ -1,7 +1,79 @@
 const AllProducts = () => {
   return (
-    <div className="customWidth ">
+    <div className="customWidth z-[900]">
       <div className="px-6 ">
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
+        <h1>All Products</h1>
         <h1>All Products</h1>
       </div>
     </div>

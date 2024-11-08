@@ -12,7 +12,7 @@ export default function CollectionLayout({ children }) {
   const [openTabs, setOpenTabs] = useState(true);
   const [openFilters, setOpenFilters] = useState(true);
   const [activeTab, setActiveTab] = useState("All Categories");
-
+  const [scrollDirection, setScrollDirection] = useState("up");
   useEffect(() => {
     if (pathname) {
       const currentPath = pathname.split("/")[2];
@@ -45,13 +45,42 @@ export default function CollectionLayout({ children }) {
     }
   };
 
+  let lastScrollY = 0;
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+
+      if (currentScroll > lastScrollY && currentScroll > 100) {
+        setScrollDirection("down");
+      } else if (currentScroll < lastScrollY) {
+        setScrollDirection("up");
+      }
+
+      lastScrollY = currentScroll;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <html lang="en">
       <body>
         <NavBar />
         <div className="customWidth px-4 sm:px-6 lg:px-6 py-6 overflow-hidden relative">
           {/* Filters Header */}
-          <div className="fixed w-full max-w-[1320px] lg:top-40 z-[900] transform translate-x-0 bg-white p-1">
+
+          <div
+            className={`fixed w-full max-w-[1320px] ${
+              scrollDirection === "down"
+                ? "lg:top-0 z-[900] top-0"
+                : "lg:top-40 z-[900]"
+            }  transform translate-x-0 bg-white p-1
+              `}
+          >
             <div className="flex justify-between px-6 my-3 overflow-hidden ">
               <div className="flex space-x-4">
                 <h1
