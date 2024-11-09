@@ -23,17 +23,60 @@ export default function CollectionLayout({ children }) {
     }
   }, [pathname]);
 
+  // const navItems = [
+  //   { name: "All Categories", link: "/collection/all" },
+  //   { name: "Offer", link: "/collection/offer" },
+  //   { name: "Sharisa Oil", link: "/collection/sharisaOil" },
+  //   { name: "Dates", link: "/collection/dates" },
+  //   { name: "Ghee", link: "/collection/ghee" },
+  //   { name: "Masala", link: "/collection/masala" },
+  //   { name: "Organic Oil", link: "/collection/organicOil" },
+  //   { name: "Nuts & Seeds", link: "/collection/nutsSeeds" },
+  //   { name: "Tea/Coffee", link: "/collection/teaCoffee" },
+  //   { name: "Functional Food", link: "/collection/functionalFood" }
+  // ];
+
   const navItems = [
-    { name: "All Categories", link: "/collection/all" },
-    { name: "Offer", link: "/collection/offer" },
-    { name: "Sharisa Oil", link: "/collection/sharisaOil" },
-    { name: "Dates", link: "/collection/dates" },
-    { name: "Ghee", link: "/collection/ghee" },
-    { name: "Masala", link: "/collection/masala" },
-    { name: "Organic Oil", link: "/collection/organicOil" },
-    { name: "Nuts & Seeds", link: "/collection/nutsSeeds" },
-    { name: "Tea/Coffee", link: "/collection/teaCoffee" },
-    { name: "Functional Food", link: "/collection/functionalFood" }
+    {
+      name: "All Categories",
+      link: "/collection/all"
+    },
+    {
+      name: "Offer",
+      link: "/collection/offer"
+    },
+    {
+      name: "Sharisa Oil",
+      link: "/collection/sharisaOil"
+    },
+    {
+      name: "Dates",
+      link: "/collection/dates"
+    },
+    {
+      name: "Ghee",
+      link: "/collection/ghee"
+    },
+    {
+      name: "Masala",
+      link: "/collection/masala"
+    },
+    {
+      name: "Organic Oil",
+      link: "/collection/organicOil"
+    },
+    {
+      name: "Nuts & Seeds",
+      link: "/collection/nutsSeeds"
+    },
+    {
+      name: "Tea/Coffee",
+      link: "/collection/teaCoffee"
+    },
+    {
+      name: "Functional Food",
+      link: "/collection/functionalFood"
+    }
   ];
 
   const handleTabClick = (name) => {
