@@ -37,7 +37,7 @@ export default function CommonLayout({ children }) {
     <html lang="en">
       <body>
         <div
-          className={`sticky top-0 left-0 w-full transition-transform duration-300 ${
+          className={`sticky top-0 left-0  w-full transition-transform duration-300 ${
             isNavbarVisible
               ? "transform translate-y-0"
               : "transform -translate-y-full"

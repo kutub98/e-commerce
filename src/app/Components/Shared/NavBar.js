@@ -113,131 +113,133 @@ const NavBar = () => {
   );
 
   return (
-    <div className="customWidth">
-      {openSearchBar ? (
-        <div className="fixed inset-0 w-full max-w-[1320px] mx-auto bg-black bg-opacity-50 z-[9999] overlay">
-          <div ref={searchBarRef} className="relative z-[9999]">
-            {/* Search Store */}
-            <div className=" border-none justify-between my0 flex md:hidden items-center b-white pt-4 shadow-md px-6 bg-white z-[991]">
-              <h1>Search store</h1>
-              <PiXBold
-                className="PrimaryText h-6 w-6"
-                onClick={() => setOpenSearchBar(false)}
-              />
+    <>
+      <div className="">
+        {openSearchBar ? (
+          <div className="fixed inset-0 w-full max-w-[1320px] mx-auto bg-black bg-opacity-50 z-[9999] overlay">
+            <div ref={searchBarRef} className="relative z-[9999]">
+              {/* Search Store */}
+              <div className=" border-none justify-between my0 flex md:hidden items-center b-white pt-4 shadow-md px-6 bg-white z-[991]">
+                <h1>Search store</h1>
+                <PiXBold
+                  className="PrimaryText h-6 w-6"
+                  onClick={() => setOpenSearchBar(false)}
+                />
+              </div>
+              {/* Clickable Searchbar */}
+              <div className="flex justify-between w-full relative items-center bg-white px-6 pb-4 md:pt-4 border-none">
+                <div className="md:w-1/2 hidden md:block">
+                  <Link href={"/"}>
+                    <Image
+                      src={logo}
+                      height={50}
+                      width={50}
+                      alt="logo"
+                      className="primaryBg rounded-full p-1"
+                    />
+                  </Link>
+                </div>
+                <div className="relative lg:w-2/3 w-full">
+                  <Input
+                    className="px-3 py-2 rounded w-full PrimaryText"
+                    placeholder="Search here..."
+                  />
+                  <GoSearch className="absolute h-6 w-6  top-1/2 right-2 PrimaryText transform -translate-y-1/2 cursor-pointer" />
+                </div>
+                <div className="justify-end space-x-3 lg:flex lg:order-3 w-1/3 md:flex hidden">
+                  <FaUserLarge className="h-5 w-5 PrimaryText " stroke="2" />
+                  <FaShoppingBag
+                    className="h-5 w-5 PrimaryText cursor-pointer"
+                    onClick={openDrawer}
+                    stroke="2"
+                  />
+                </div>
+              </div>
             </div>
-            {/* Clickable Searchbar */}
-            <div className="flex justify-between w-full relative items-center bg-white px-6 pb-4 md:pt-4 border-none">
-              <div className="md:w-1/2 hidden md:block">
+          </div>
+        ) : (
+          <>
+            <div className="flex justify-between items-center my-3 primaryBg w-full px-6 py-2">
+              <div
+                className="lg:hidden w-1/3"
+                onClick={() => setOpenNav((prev) => !prev)}
+              >
+                {openNav ? (
+                  <PiXBold className="ButtonText" />
+                ) : (
+                  <FaBars className="ButtonText" />
+                )}
+              </div>
+              <div className="lg:order-2 w-1/3 text-center flex justify-center ButtonText">
                 <Link href={"/"}>
                   <Image
                     src={logo}
-                    height={50}
-                    width={50}
+                    height={70}
+                    width={70}
                     alt="logo"
                     className="primaryBg rounded-full p-1"
                   />
                 </Link>
               </div>
-              <div className="relative lg:w-2/3 w-full">
-                <Input
-                  className="px-3 py-2 rounded w-full PrimaryText"
-                  placeholder="Search here..."
+              <div className="lg:order-1  overflow-hidden w-1/3 items-center hidden lg:flex">
+                <GoSearch
+                  className="h-6 w-6  cursor-pointer ButtonText"
+                  onClick={() => setOpenSearchBar(true)}
                 />
-                <GoSearch className="absolute h-6 w-6  top-1/2 right-2 PrimaryText transform -translate-y-1/2 cursor-pointer" />
+                <Input className="px-6 py-4 hidden ButtonText" />
               </div>
-              <div className="justify-end space-x-3 lg:flex lg:order-3 w-1/3 md:flex hidden">
-                <FaUserLarge className="h-5 w-5 PrimaryText " stroke="2" />
+              <div className="justify-end space-x-3 flex lg:flex lg:order-3 w-1/3">
+                <FaUserLarge
+                  className="h-5 w-5 ButtonText  hidden lg:block"
+                  stroke="2"
+                />
+                <GoSearch
+                  className="h-6 w-6  cursor-pointer ButtonText block lg:hidden"
+                  onClick={() => setOpenSearchBar(true)}
+                />
                 <FaShoppingBag
-                  className="h-5 w-5 PrimaryText cursor-pointer"
+                  className="h-5 w-5 ButtonText cursor-pointer"
                   onClick={openDrawer}
                   stroke="2"
                 />
               </div>
             </div>
-          </div>
-        </div>
-      ) : (
-        <>
-          <div className="flex justify-between items-center my-3 primaryBg w-full px-6 py-2">
-            <div
-              className="lg:hidden w-1/3"
-              onClick={() => setOpenNav((prev) => !prev)}
-            >
-              {openNav ? (
-                <PiXBold className="ButtonText" />
-              ) : (
-                <FaBars className="ButtonText" />
-              )}
-            </div>
-            <div className="lg:order-2 w-1/3 text-center flex justify-center ButtonText">
-              <Link href={"/"}>
-                <Image
-                  src={logo}
-                  height={70}
-                  width={70}
-                  alt="logo"
-                  className="primaryBg rounded-full p-1"
-                />
-              </Link>
-            </div>
-            <div className="lg:order-1  overflow-hidden w-1/3 items-center hidden lg:flex">
-              <GoSearch
-                className="h-6 w-6  cursor-pointer ButtonText"
-                onClick={() => setOpenSearchBar(true)}
-              />
-              <Input className="px-6 py-4 hidden ButtonText" />
-            </div>
-            <div className="justify-end space-x-3 flex lg:flex lg:order-3 w-1/3">
-              <FaUserLarge
-                className="h-5 w-5 ButtonText  hidden lg:block"
-                stroke="2"
-              />
-              <GoSearch
-                className="h-6 w-6  cursor-pointer ButtonText block lg:hidden"
-                onClick={() => setOpenSearchBar(true)}
-              />
-              <FaShoppingBag
-                className="h-5 w-5 ButtonText cursor-pointer"
-                onClick={openDrawer}
-                stroke="2"
-              />
-            </div>
-          </div>
-          {openNav && (
-            <div className="fixed top-[84px] left-0 primaryBg z-[10000]  h-screen w-2/3 p-4 lg:hidden overflow-y-auto">
-              {navLinks}
-              <div className="block px-3 pb-20 space-y-3">
-                <h1 className="text-xl text-white">My Account</h1>
-                <Button className="ButtonBg px-4 py-2 w-full">Login</Button>
-                <Button className="border px-4 py-2 w-full">Register</Button>
+            {openNav && (
+              <div className="fixed top-[84px] left-0 primaryBg z-[10000]  h-screen w-2/3 p-4 lg:hidden overflow-y-auto">
+                {navLinks}
+                <div className="block px-3 pb-20 space-y-3">
+                  <h1 className="text-xl text-white">My Account</h1>
+                  <Button className="ButtonBg px-4 py-2 w-full">Login</Button>
+                  <Button className="border px-4 py-2 w-full">Register</Button>
+                </div>
               </div>
+            )}
+
+            <div className="hidden lg:flex -mt-4 z-[999] bg-white">
+              {navLinks}
             </div>
-          )}
-
-          <div className="hidden lg:flex -mt-4 z-[999] bg-white">
-            {navLinks}
-          </div>
-        </>
-      )}
-
-      {open && (
-        <div className="w-full h-screen fixed overlay bg-black opacity-75 z-[9999]"></div>
-      )}
-
-      <Drawer
-        open={open}
-        onClose={closeDrawer}
-        placement="right"
-        className="fixed p-4 w-full h-screen z-[10000]"
-      >
-        <div className="flex items-center justify-between mb-6">
-          <Typography variant="h5">Shopping Cart</Typography>
-          <IconButton variant="text" onClick={closeDrawer}>
-            <PiXBold />
-          </IconButton>
-        </div>
-      </Drawer>
-    </div>
+          </>
+        )}
+        {open && (
+          <div className="w-full h-screen fixed overlay bg-black opacity-75 z-[9999]"></div>
+        )}
+        {
+          <Drawer
+            open={open}
+            onClose={closeDrawer}
+            placement="right"
+            className=" fixed p-4 w-full max-h-screen z-[10000]"
+          >
+            <div className="flex items-center justify-between mb-6">
+              <Typography variant="h5">Shopping Cart</Typography>
+              <IconButton variant="text" onClick={closeDrawer}>
+                <PiXBold />
+              </IconButton>
+            </div>
+          </Drawer>
+        }
+      </div>
+    </>
   );
 };
 
