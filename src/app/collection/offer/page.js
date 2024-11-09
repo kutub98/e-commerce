@@ -3,7 +3,7 @@ import React from "react";
 const Offer = () => {
   return (
     <div>
-      <h1>Offer</h1>
+      <h1>All Offer</h1>
       <h1>Offer</h1>
       <h1>Offer</h1>
       <h1>Offer</h1>
